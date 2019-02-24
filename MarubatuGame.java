@@ -1,36 +1,46 @@
 import java.util.Scanner;
 
 public class MarubatuGame {
-	public static void main(String[] args){
 
-		System.out.println("◯×ゲームです。");
-		System.out.println("先行は◯、後攻は×です。");
-		System.out.println("0〜2の数字を入力してください。");
+	public static void main(String [] args) {
 
-		System.out.println("◯の番です。");
+		int masu=3;
+		int [][] masume=new int [masu][masu];
+
+	System.out.println("◯×ゲームです。");
+	System.out.println("player1は◯、player2は×です。");
+	System.out.println("0〜2の数字を2回入力してください。");
+
+	Scanner sc = new Scanner(System.in);
+	String mark[] = {" ", "◯", "×"};
+	for(int turn = 0; turn < masu*masu ; turn++){
+		int player = turn%2+1;
+		System.out.println("Player"+player+"の番です");
+
+		int number1,number2;
 		System.out.println("1個目の数字を入力してください。");
-		Scanner sc = new Scanner(System.in);
-		int a=sc.nextInt();
+		number1=sc.nextInt();
 		System.out.println("2個目の数字を入力してください。");
-		int b=sc.nextInt();
+		number2=sc.nextInt();
 
-		String [][] masume=new String [3][3];
-		for(int i=0;i<3;i++) {
-			for(int j = 0;j < 3;j++ ){
-				masume[i][j] = " ";
+		if(number1<0 || number2<0 || number1>=masu || number2>=masu || masume[number1][number2]!=0);masume[number1][number2] = player;
+		for(int i=0; i<masu; i++){
+			String row = "|";
+			for(int j=0; j<masu; j++){
+				row+=mark[masume[i][j]]+"|";
 			}
-			masume[0][0]="";
-			masume[0][1]="";
-			masume[0][2]="";
-			masume[1][0]="";
-			masume[1][1]="";
-			masume[1][2]="";
-			masume[2][0]="";
-			masume[2][1]="";
-			masume[2][2]="";
-
-			System.out.print(" | | ");
-			System.out.println("");
+			System.out.println(row);
 		}
+		//縦
+		System.out.println("player"+player+"の勝利");
+		//横
+		System.out.println("player"+player+"の勝利");
+		//ななめ
+		System.out.println("player"+player+"の勝利");
+		//引き分け
+		System.out.println("引き分け");
+		//終了
+		System.exit(0);
+	}
 	}
 }
