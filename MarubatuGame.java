@@ -7,6 +7,7 @@ public class MarubatuGame {
 		int [][] masume=new int [masu][masu];
 		for(int y=0; y<masu;y++) {
 			for(int x=0; x<masu; x++) {
+				masume[x][y]=0;
 			}
 		}
 
